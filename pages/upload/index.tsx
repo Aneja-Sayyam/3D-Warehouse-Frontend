@@ -28,7 +28,7 @@ const UploadPage = () => {
       formData.append("title", title);
       formData.append("description", description);
     }
-    const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/createModel`, formData);
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/createModel`, formData);
     const result = await res.data;
 
     router.push(`/model/${result.id}`)
