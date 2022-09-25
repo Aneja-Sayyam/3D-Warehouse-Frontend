@@ -1,0 +1,60 @@
+.container{
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+  justify-content: flex-start;
+}
+.card{
+  width: 250px;
+  height: 300px;
+  border: 1px solid rgb(217, 217, 217);
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s border ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+.card:hover{
+  border: 1px solid var(--primary);
+}
+.scene{
+  width: 100%;
+  height: calc(100% - 100px);
+}
+.info{
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  row-gap: 5px;
+}
+.title{
+  font-size: 20px;
+  font-weight: 600;
+}
+.description{
+  font-size: 15px;
+  font-style: italic;
+}
+.extension{
+  font-size: 15px;
+  font-style: italic;
+}
+.remove{
+  display: none;
+  position: absolute;
+  right: 15px;
+  top:10px;
+  z-index: 1;
+  font-size: 20px;
+  color: rgb(213, 34, 34);
+}
+.card:hover .remove{
+  display: block;
+}
