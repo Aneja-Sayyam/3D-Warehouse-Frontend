@@ -1,30 +1,21 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useLoader } from "@react-three/fiber";
-import React, { Suspense, useMemo, useState } from "react";
-import { BackSide, ColorRepresentation, DoubleSide } from "three";
+import React, { Suspense } from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { model } from "../data-types/modelInterface";
-import styles from '../styles/scene.module.css'
-
+import styles from "../styles/scene.module.css";
 
 interface Props {
   modelData: model;
-  camera:{position:[number,number,number],fov:number}
-  modelPosition:[number,number,number]
+  camera: { position: [number, number, number]; fov: number };
+  modelPosition: [number, number, number];
 }
 
-const Scene = ({ modelData,camera,modelPosition }: Props) => {
+const Scene = ({ modelData, camera, modelPosition }: Props) => {
   const RenderGLTFModel = (modelData: model) => {
-    const { nodes, scene } = useLoader(GLTFLoader, modelData.path);
-    useMemo(
-      () =>
-        Object.values(nodes).forEach(
-          (obj) => obj.isObject3D && Object.assign(obj, { castShadow: true })
-        ),
-      [nodes]
-    );
+    const { scene } = useLoader(GLTFLoader, modelData.path);
     return <primitive object={scene} dispose={null} />;
   };
 
@@ -51,35 +42,36 @@ const Scene = ({ modelData,camera,modelPosition }: Props) => {
     } else {
       return null;
     }
-
   };
 
   return (
     <div className={styles.scene}>
-      <Canvas  camera={camera}>
+      <Canvas camera={camera}>
         <ambientLight intensity={1} />
         <pointLight position={[-20, 0, -20]} intensity={0.5} />
         <pointLight position={[20, 0, -20]} intensity={0.5} />
-        <pointLight position={[0,0,-20]} intensity={0.5} />
-      
-        <mesh  position={modelPosition}>
+        <pointLight position={[0, 0, -20]} intensity={0.5} />
+        <pointLight position={[0, 0, 20]} intensity={0.5} />
+
+        <mesh position={modelPosition}>
           <Suspense fallback={null}>
             <Model />
           </Suspense>
         </mesh>
-        <mesh
-          position={[0, -0.1, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          
-        >
+        <mesh position={[0, -0.1, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry attach={"geometry"} args={[50, 50]} />
-          <meshBasicMaterial color={'rgb(186, 186, 186)'} opacity={0.3}  attach={"material"} />
-          <gridHelper  args={[50,10,'gray','gray']} position={[0,-0.1,0]} rotation={[-Math.PI / 2,0,0]} />
+          <meshBasicMaterial
+            color={"rgb(186, 186, 186)"}
+            opacity={0.3}
+            attach={"material"}
+          />
+          <gridHelper
+            args={[50, 10, "gray", "gray"]}
+            position={[0, -0.1, 0]}
+            rotation={[-Math.PI / 2, 0, 0]}
+          />
         </mesh>
-        <OrbitControls 
-        reverseOrbit={false}
-        maxPolarAngle={Math.PI / 2.5}
-        minPolarAngle={Math.PI / 3} />
+        <OrbitControls />
       </Canvas>
     </div>
   );
