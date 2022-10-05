@@ -10,12 +10,11 @@
     align-items: center;
     column-gap: 30px;
     padding-left: 30px;
-    padding-right: 300px;
+    padding-right: 100px;
     border-bottom: 1px solid rgb(217,217,217);
     /* box-shadow: 0 0 10px 1px rgb(183, 183, 183) ; */
-    z-index: 2;
+    z-index: 1;
 }
-
 .navItem{
     cursor: pointer;
     font-weight: 500;
@@ -43,12 +42,9 @@
 }
 .appName::before{
     display: inline-block;
-    content: url(http://192.168.1.13:3000/favicon.svg);
+    content: url(/favicon.svg);
     height: 40px;
     width: 40px;
-    
-    /* display: block;
-    z-index: 3;*/
 }
 
 .active{
@@ -58,8 +54,18 @@
 .active:hover{
     background-color: var(--hover);
 }
-.icon{
-    height: 25px;
-    width: 25px;
 
+@media screen and (max-width:700px) {
+    .container{
+        padding-left: 5px;
+        column-gap: 10px;
+        padding-right: 10px;
+    }
+    .navItem{
+        font-size: 100%;
+        padding: 5px 10px;
+    }
+    .appName{
+        font-size: 100%;
+    }
 }

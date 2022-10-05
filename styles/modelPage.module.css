@@ -1,31 +1,51 @@
 .container{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    display: block;
+    /* flex-direction: row;
+    align-items: flex-start; */
     margin:0;
+    position: relative;
+}
+.container:has([class*="renderFullScreen"]){
+    z-index: 5;
+
 }
 .render{
     display: block;
     margin-top: 60px;
     height: calc(100% - 60px);
-    width: 80%;
-    background-color: rgb(226, 226, 226);
+    width: 100%;
+    position: absolute;
 }
 .modelProperties{
+    position: absolute;
+    height: 120px;
+    width: 50%;
+    /* border: 1px solid rgb(217, 217, 217); */
+    background-color: var(--background);
+    bottom: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 60px);
-    width: 20%;
-    margin-top: 60px;
-    /* border-left: 2px solid rgb(166, 166, 166); */
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: var(--background);
-    row-gap: 10px;
+    padding-left: 40px;
+    padding-top: 20px;
+    user-select: none;
 }
+.minimizedModelProperties{
+    height: 80px;
+}
+.minimizedModelProperties .expandProperties{
+    top: auto;
+}
+.minimizedModelProperties .description, .minimizedModelProperties .extension {
+    display: none;
+}
+
+
 .title{
     font-size: 32px;
     font-weight: bold;
@@ -41,4 +61,25 @@
     font-style: italic;
     font-size: 18px;
     font-weight: lighter;
+}
+.expandScene{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    font-size: 25px;
+    z-index: 5;
+}
+.expandProperties{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 20px;
+}
+.renderFullScreen{
+    display: block;
+    height: 100%;
+    /* margin-top: 60px; */
+    /* height: calc(100% - 60px); */
+    width: 100%;
+    position: absolute;
 }

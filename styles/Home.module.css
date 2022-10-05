@@ -8,7 +8,10 @@
   flex-wrap: wrap;
   column-gap: 30px;
   row-gap: 30px;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  /* justify-content: center; */
+  /* flex-basis: 4; */
 }
 .card{
   width: 250px;
@@ -57,4 +60,15 @@
 }
 .card:hover .remove{
   display: block;
+}
+
+@media screen and (max-width:629px) {
+  .container{
+    justify-content: center;
+  }
+}
+@media screen and (min-width:630px) {
+  .container{
+    flex-basis: auto;
+  }
 }

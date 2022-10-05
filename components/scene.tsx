@@ -1,11 +1,13 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useLoader } from "@react-three/fiber";
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useMemo, useState } from "react";
+import { BackSide, ColorRepresentation, DoubleSide } from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { model } from "../data-types/modelInterface";
 import styles from '../styles/scene.module.css'
+
 
 interface Props {
   modelData: model;
@@ -49,40 +51,36 @@ const Scene = ({ modelData,camera,modelPosition }: Props) => {
     } else {
       return null;
     }
+
   };
 
   return (
     <div className={styles.scene}>
-      <Canvas shadows camera={camera}>
+      <Canvas  camera={camera}>
         <ambientLight intensity={1} />
-        <pointLight position={[-10, 0, -20]} intensity={0.5} />
-        <pointLight position={[0, -10, 0]} intensity={1.5} />
-        <directionalLight
-          castShadow
-          position={[0, 20, 0]}
-          intensity={0.5}
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-far={50}
-          shadow-camera-left={-10}
-          shadow-camera-right={10}
-          shadow-camera-top={10}
-          shadow-camera-bottom={-10}
-        />
-        <mesh castShadow position={modelPosition}>
+        <pointLight position={[-20, 0, -20]} intensity={0.5} />
+        <pointLight position={[20, 0, -20]} intensity={0.5} />
+        <pointLight position={[0,0,-20]} intensity={0.5} />
+      
+        <mesh  position={modelPosition}>
           <Suspense fallback={null}>
             <Model />
           </Suspense>
         </mesh>
         <mesh
-          receiveShadow
           position={[0, -0.1, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
+          
         >
-          <planeGeometry attach={"geometry"} args={[100, 100]} />
-          <shadowMaterial color={"black"} opacity={0.3} attach={"material"} />
+          <planeGeometry attach={"geometry"} args={[50, 50]} />
+          <meshBasicMaterial color={'rgb(186, 186, 186)'} opacity={0.3}  attach={"material"} />
+          <gridHelper  args={[50,10,'gray','gray']} position={[0,-0.1,0]} rotation={[-Math.PI / 2,0,0]} />
         </mesh>
-        <OrbitControls />
+        <OrbitControls 
+        // screenSpacePanning={true}
+        reverseOrbit={false}
+        maxPolarAngle={Math.PI / 2.5}
+        minPolarAngle={Math.PI / 3} />
       </Canvas>
     </div>
   );

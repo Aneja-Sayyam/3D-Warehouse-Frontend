@@ -17,7 +17,7 @@ const ModelCard = ({styles,modelData,removeModel}:Props) => {
     <div className={styles.card}>
       {removeModel?<div onClick={(e)=>{removeModel(e,modelData.id)}} className={styles.remove}>x</div>:undefined}
       <div className={styles.scene}>
-      <Scene modelPosition={[0, 0, 0]} camera={{position:[0,0.1,0.4],fov:40}} modelData={modelData}/>
+      <Scene modelPosition={[0, 0, 0]} camera={{position:[0,0.1,0.4],fov:60}} modelData={modelData}/>
       </div>
       <div className={styles.info}>
         <span className={styles.title}>{modelData.title}</span>
