@@ -77,7 +77,6 @@ const Scene = ({ modelData,camera,modelPosition }: Props) => {
           <gridHelper  args={[50,10,'gray','gray']} position={[0,-0.1,0]} rotation={[-Math.PI / 2,0,0]} />
         </mesh>
         <OrbitControls 
-        // screenSpacePanning={true}
         reverseOrbit={false}
         maxPolarAngle={Math.PI / 2.5}
         minPolarAngle={Math.PI / 3} />

@@ -1,85 +1,77 @@
-.container{
-    width: 100vw;
-    height: 100vh;
-    display: block;
-    /* flex-direction: row;
-    align-items: flex-start; */
-    margin:0;
-    position: relative;
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  margin: 0;
+  position: relative;
 }
-.container:has([class*="renderFullScreen"]){
-    z-index: 5;
-
+.container:has([class*="renderFullScreen"]) {
+  z-index: 5;
 }
-.render{
-    display: block;
-    margin-top: 60px;
-    height: calc(100% - 60px);
-    width: 100%;
-    position: absolute;
+.render {
+  display: block;
+  margin-top: 60px;
+  height: calc(100% - 60px);
+  width: 100%;
+  position: absolute;
 }
-.modelProperties{
-    position: absolute;
-    height: 120px;
-    width: 50%;
-    /* border: 1px solid rgb(217, 217, 217); */
-    background-color: var(--background);
-    bottom: 0;
-    left: 0; 
-    right: 0; 
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    padding-left: 40px;
-    padding-top: 20px;
-    user-select: none;
+.modelProperties {
+  position: absolute;
+  height: 120px;
+  width: 50%;
+  background-color: var(--background);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-top: 20px;
+  user-select: none;
 }
-.minimizedModelProperties{
-    height: 80px;
+.minimizedModelProperties {
+  height: 80px;
 }
-.minimizedModelProperties .expandProperties{
-    top: auto;
+.minimizedModelProperties .expandProperties {
+  top: auto;
 }
-.minimizedModelProperties .description, .minimizedModelProperties .extension {
-    display: none;
+.minimizedModelProperties .description,
+.minimizedModelProperties .extension {
+  display: none;
 }
 
-
-.title{
-    font-size: 32px;
-    font-weight: bold;
+.title {
+  font-size: 32px;
+  font-weight: bold;
 }
-.description{
-    font-size: 18px;
-    font-weight: lighter;
-    /* color: rgb(45, 45, 45); */
-    font-style: italic;
-
+.description {
+  font-size: 18px;
+  font-weight: lighter;
+  font-style: italic;
 }
-.extension{
-    font-style: italic;
-    font-size: 18px;
-    font-weight: lighter;
+.extension {
+  font-style: italic;
+  font-size: 18px;
+  font-weight: lighter;
 }
-.expandScene{
-    position: absolute;
-    right: 30px;
-    top: 10px;
-    font-size: 25px;
-    z-index: 5;
+.expandScene {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  font-size: 25px;
+  z-index: 5;
 }
-.expandProperties{
-    position: absolute;
-    top: 0;
-    left: 10px;
-    font-size: 20px;
+.expandProperties {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 20px;
 }
-.renderFullScreen{
-    display: block;
-    height: 100%;
-    /* margin-top: 60px; */
-    /* height: calc(100% - 60px); */
-    width: 100%;
-    position: absolute;
+.renderFullScreen {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }

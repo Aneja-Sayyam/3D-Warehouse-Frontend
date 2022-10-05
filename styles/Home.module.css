@@ -1,4 +1,4 @@
-.container{
+.container {
   height: calc(100% - 60px);
   margin-top: 60px;
   width: 100%;
@@ -9,11 +9,8 @@
   column-gap: 30px;
   row-gap: 30px;
   flex-wrap: wrap;
-
-  /* justify-content: center; */
-  /* flex-basis: 4; */
 }
-.card{
+.card {
   width: 250px;
   height: 300px;
   border: 1px solid rgb(217, 217, 217);
@@ -23,52 +20,52 @@
   position: relative;
   cursor: pointer;
 }
-.card:hover{
+.card:hover {
   border: 1px solid var(--primary);
 }
-.scene{
+.scene {
   width: 100%;
   height: calc(100% - 100px);
 }
-.info{
+.info {
   padding: 10px 5px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   row-gap: 5px;
 }
-.title{
+.title {
   font-size: 20px;
   font-weight: 600;
 }
-.description{
+.description {
   font-size: 15px;
   font-style: italic;
 }
-.extension{
+.extension {
   font-size: 15px;
   font-style: italic;
 }
-.remove{
+.remove {
   display: none;
   position: absolute;
   right: 15px;
-  top:10px;
+  top: 10px;
   z-index: 1;
   font-size: 20px;
   color: rgb(213, 34, 34);
 }
-.card:hover .remove{
+.card:hover .remove {
   display: block;
 }
 
-@media screen and (max-width:629px) {
-  .container{
+@media screen and (max-width: 629px) {
+  .container {
     justify-content: center;
   }
 }
-@media screen and (min-width:630px) {
-  .container{
+@media screen and (min-width: 630px) {
+  .container {
     flex-basis: auto;
   }
 }

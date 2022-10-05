@@ -1,4 +1,3 @@
-
 html,
 body {
   padding: 0;
@@ -6,11 +5,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-:root{
-  --background : rgb(249, 249, 249);
-  --primary:rgb(51, 126, 210);
-  --hover:rgb(24, 97, 180);
-  /* --orbitCursor :  */
+:root {
+  --background: rgb(249, 249, 249);
+  --primary: rgb(51, 126, 210);
+  --hover: rgb(24, 97, 180);
 }
 a {
   color: inherit;

@@ -8,7 +8,7 @@ config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
   const navItems:NavItem[] = [
-    {path:'/',title:'Model Warehouse',type:'app-name',logo:true},
+    {path:'/',title:'Model Warehouse',type:'app-name'},
     {path:'/',title:'Models'},
     {path:'/upload',title:'Upload'}
   ]
